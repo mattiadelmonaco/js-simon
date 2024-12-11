@@ -20,6 +20,17 @@ const numberFieldElm = document.getElementById("number-field")
 const confirmElm = document.getElementById("confirm")
 const numberGuessElm = document.getElementById("number-guess")
 
+// VARIABLES
+
+let countdown = 3
+
 // LOGIC 
 
-
+const endCountdown = setInterval(() => {
+    if (countdown === 0) {
+        clearInterval(endCountdown)
+    } 
+    counterElm.innerHTML = countdown
+    countdown--
+}, 1000)
+    
