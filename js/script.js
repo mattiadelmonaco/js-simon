@@ -24,25 +24,40 @@ const userNumberElm = document.querySelectorAll(".user-number")
 const errorMessageElm = document.getElementById("error-message")
 const error = document.getElementById("error")
 const btnReset = document.getElementById("btn-reset")
+const btnReset2 = document.getElementById("btn-reset2")
+const gameHiddenElm = document.getElementById("hidden")
+const readyElm = document.getElementById("ready")
+const playElm = document.getElementById("play")
 
 // GLOBAL VARIABLES
 
-let countdown = 3
+let countdown = 29
 let randomNumberArray = []
 
 // LOGIC 
 
-// countdown and functions
-
-const endCountdown = setInterval(() => {
+// befone game start
+playElm.addEventListener("click", function() {
+    readyElm.classList.add("d-none")
+    playElm.classList.add("d-none")
+    gameHiddenElm.classList.remove("d-none")
+    // countdown and functions
+    const endCountdown = setInterval(() => {
     if (countdown === 0) {
         clearInterval(endCountdown)
         randomNumberContainerElm.classList.add("d-none")
         numberFieldElm.classList.remove("d-none")
+        btnReset.classList.remove("d-none")
+        btnReset.classList.add("d-block")
+        confirmElm.removeAttribute("disabled")
+        btnReset.addEventListener("click", function (){
+            location.reload()
+        })
     } 
     counterElm.innerHTML = countdown
     countdown--
 }, 1000)
+})
 
 // cicle to get 5 random numbers and put to an array
 
@@ -91,6 +106,7 @@ numberGuessElm.innerHTML = `Hai indovinato ${correctNumbers} numeri! (${foundNum
 
 })
 
-btnReset.addEventListener("click", function() {
+// reset to second button "riprova"
+btnReset2.addEventListener("click", function() {
     location.reload()
 })
