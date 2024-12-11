@@ -32,3 +32,16 @@ h1 {
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+#number-field {
+    position: relative;
+}
+
+.error-card {
+    max-width: 40%;
+    height: 55%;
+}
+
+.padding-10 {
+    padding: .625rem;
+}

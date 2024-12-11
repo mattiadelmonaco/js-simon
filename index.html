@@ -11,7 +11,7 @@
 </head>
 <body>
     <main class="container text-center">
-        <h1>JS SIMON</h1>
+        <h1>SIMON SAYS</h1>
         <div id="counter">3</div>
         <p>Inserisci tutti i numeri che ricordi (l'ordine non è importante)</p>
         <div id="random-number-container" class="d-flex">
@@ -21,7 +21,7 @@
             <div class="random-number card-body"></div>
             <div class="random-number card-body"></div>
         </div>
-        <div id="number-field" class="d-flex justify-content-center">
+        <div id="number-field" class="d-flex justify-content-center d-none">
             <input type="number" class="user-number" min="1" max="99" placeholder="Numero?" required>
             <input type="number" class="user-number" min="1" max="99" placeholder="Numero?" required>
             <input type="number" class="user-number" min="1" max="99" placeholder="Numero?" required>
@@ -30,6 +30,18 @@
         </div>
         <button id="confirm" type="button" class="btn btn-primary">Conferma</button>
         <div id="number-guess"></div>
+
+        <div id="error-message" class="error-card position-absolute top-50 start-50 translate-middle d-none card">
+            <div class="card-header">
+              ERRORE!
+            </div>
+            <div class="card-body padding-10">
+              <h5 class="card-title">Errore inserimento numeri</h5>
+              <p id="error" class="card-text"></p>
+              <button id="btn-reset" class="btn btn-primary">Riprova</button>
+            </div>
+          </div>
+
     </main>
     
     <script src="js/script.js"></script>

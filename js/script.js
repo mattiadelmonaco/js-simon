@@ -21,6 +21,9 @@ const confirmElm = document.getElementById("confirm")
 const numberGuessElm = document.getElementById("number-guess")
 const randomNumberContainerElm = document.getElementById("random-number-container")
 const userNumberElm = document.querySelectorAll(".user-number")
+const errorMessageElm = document.getElementById("error-message")
+const error = document.getElementById("error")
+const btnReset = document.getElementById("btn-reset")
 
 // GLOBAL VARIABLES
 
@@ -34,7 +37,8 @@ let randomNumberArray = []
 const endCountdown = setInterval(() => {
     if (countdown === 0) {
         clearInterval(endCountdown)
-        // randomNumberContainerElm.classList.add ("d-none")
+        randomNumberContainerElm.classList.add("d-none")
+        numberFieldElm.classList.remove("d-none")
     } 
     counterElm.innerHTML = countdown
     countdown--
@@ -63,10 +67,12 @@ confirmElm.addEventListener("click", function() {
         userNumberArray.push(parseInt(userNumberElm[i].value))
     //check if user numbers are < 1 or > 99 and if the field is empty
         if (userNumberArray[i] < 1 || userNumberArray[i] > 99) {
-            alert(`Hai inserito ${userNumberElm[i].value} nel campo ${i + 1} e non è valido! Riprova inserendo un numero compreso tra 1 e 99`)
+            errorMessageElm.classList.remove("d-none")
+            error.innerHTML = (`Hai inserito ${userNumberElm[i].value} nel campo ${i + 1} e non è valido! Riprova inserendo un numero compreso tra 1 e 99`)
             return
         } else if (userNumberElm[i].value === "") {
-            alert(`Il campo ${i + 1} è vuoto! Inserisci un numero compreso tra 1 e 99`)
+            errorMessageElm.classList.remove("d-none")
+            error.innerHTML = (`Il campo ${i + 1} è vuoto! Inserisci un numero compreso tra 1 e 99`)
             return
         }
     }
@@ -85,3 +91,6 @@ numberGuessElm.innerHTML = `Hai indovinato ${correctNumbers} numeri! (${foundNum
 
 })
 
+btnReset.addEventListener("click", function() {
+    location.reload()
+})
