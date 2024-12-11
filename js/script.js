@@ -61,6 +61,14 @@ confirmElm.addEventListener("click", function() {
     let userNumberArray = []
     for (let i = 0; i < userNumberElm.length; i++) {
         userNumberArray.push(parseInt(userNumberElm[i].value))
+    //check if user numbers are < 1 or > 99 and if the field is empty
+        if (userNumberArray[i] < 1 || userNumberArray[i] > 99) {
+            alert(`Hai inserito ${userNumberElm[i].value} nel campo ${i + 1} e non è valido! Riprova inserendo un numero compreso tra 1 e 99`)
+            return
+        } else if (userNumberElm[i].value === "") {
+            alert(`Il campo ${i + 1} è vuoto! Inserisci un numero compreso tra 1 e 99`)
+            return
+        }
     }
 
     // counter correct numbers and array with witch numbers
