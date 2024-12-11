@@ -19,7 +19,8 @@ const randomNumberElm = document.querySelectorAll(".random-number")
 const numberFieldElm = document.getElementById("number-field")
 const confirmElm = document.getElementById("confirm")
 const numberGuessElm = document.getElementById("number-guess")
-const randomNumberContainer = document.getElementById("random-number-container")
+const randomNumberContainerElm = document.getElementById("random-number-container")
+const userNumberElm = document.querySelectorAll(".user-number")
 
 // GLOBAL VARIABLES
 
@@ -33,7 +34,7 @@ let randomNumberArray = []
 const endCountdown = setInterval(() => {
     if (countdown === 0) {
         clearInterval(endCountdown)
-        // randomNumberContainer.classList.add ("d-none")
+        // randomNumberContainerElm.classList.add ("d-none")
     } 
     counterElm.innerHTML = countdown
     countdown--
@@ -41,7 +42,7 @@ const endCountdown = setInterval(() => {
 
 // cicle to get 5 random numbers and put to an array
 
-for (i = 0; i < randomNumberElm.length; i++) {
+for (let i = 0; i < randomNumberElm.length; i++) {
     let randomNumber = getRandomNumber(1, 99)
     randomNumberArray.push(randomNumber)
     randomNumberElm.innerHTML = randomNumberArray
@@ -49,9 +50,28 @@ for (i = 0; i < randomNumberElm.length; i++) {
 
 // cicle to inner in html the random number in array
 
-for (i = 0; i < randomNumberElm.length; i++) {
+for (let i = 0; i < randomNumberElm.length; i++) {
     randomNumberElm[i].innerHTML = randomNumberArray[i]
 }
-console.log(randomNumberElm)
 
-    
+// click on confirm
+
+confirmElm.addEventListener("click", function() {
+    // array with user numbers
+    let userNumberArray = []
+    for (let i = 0; i < userNumberElm.length; i++) {
+        userNumberArray.push(parseInt(userNumberElm[i].value))
+    }
+    // counter correct numbers and array with witch numbers
+    let correctNumbers = 0
+    let foundNumber = []
+    for (let i = 0; i < userNumberArray.length; i++) {
+        if (randomNumberArray.includes(userNumberArray[i])) {
+            correctNumbers++
+            foundNumber.push(userNumberArray[i])
+        }
+    }
+
+numberGuessElm.innerHTML = `Hai indovinato ${correctNumbers} numeri! (${foundNumber})`
+
+})
