@@ -1,0 +1,27 @@
+h1 {
+    margin-top: 1.875rem;
+}
+
+#counter {
+    font-size: 3.125rem;
+    font-weight: bold;
+    margin-top: 1.875rem;
+}
+
+.card-body {
+    border: 1px solid lightgray;
+    height: 1.875rem;
+    padding: .1875rem;
+    margin: 1.25rem 2.5rem;
+    text-align: center;
+    border-radius: .3125rem;
+}
+
+.form-control {
+    border: 1px solid lightgray;
+    height: 1.875rem;
+    padding: .1875rem;
+    margin: 1.25rem 2.5rem;
+    text-align: center;
+    border-radius: .3125rem;
+}

@@ -12,3 +12,14 @@ function getRandomNumber(min, max) {
     return randomNumber
     }
 
+// DOM ELEMENTS 
+
+const counterElm = document.getElementById("counter")
+const randomNumberElm = document.getElementById("random-number")
+const numberFieldElm = document.getElementById("number-field")
+const confirmElm = document.getElementById("confirm")
+const numberGuessElm = document.getElementById("number-guess")
+
+// LOGIC 
+
+
