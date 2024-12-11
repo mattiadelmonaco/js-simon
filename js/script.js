@@ -62,6 +62,7 @@ confirmElm.addEventListener("click", function() {
     for (let i = 0; i < userNumberElm.length; i++) {
         userNumberArray.push(parseInt(userNumberElm[i].value))
     }
+
     // counter correct numbers and array with witch numbers
     let correctNumbers = 0
     let foundNumber = []
@@ -75,3 +76,4 @@ confirmElm.addEventListener("click", function() {
 numberGuessElm.innerHTML = `Hai indovinato ${correctNumbers} numeri! (${foundNumber})`
 
 })
+
