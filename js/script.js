@@ -95,7 +95,7 @@ confirmElm.addEventListener("click", function() {
     let correctNumbers = 0
     let foundNumber = []
     for (let i = 0; i < userNumberArray.length; i++) {
-        if (randomNumberArray.includes(userNumberArray[i])) {
+        if (randomNumberArray.includes(userNumberArray[i]) && !foundNumber.includes(userNumberArray[i])) {
             correctNumbers++
             foundNumber.push(userNumberArray[i])
         }
