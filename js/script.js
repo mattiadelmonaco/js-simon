@@ -64,7 +64,6 @@ playElm.addEventListener("click", function() {
 for (let i = 0; i < randomNumberElm.length; i++) {
     let randomNumber = getRandomNumber(1, 99)
     randomNumberArray.push(randomNumber)
-    randomNumberElm.innerHTML = randomNumberArray
 }
 
 // cicle to inner in html the random number in array
